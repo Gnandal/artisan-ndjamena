@@ -1,6 +1,7 @@
 // Affichage de l'annuaire. Les données des artisans sont dans artisans.js.
 
 const TOUS = ""; // valeur de l'option « Tous » dans les listes déroulantes
+const MESSAGE_WHATSAPP = "Bonjour, je vous ai trouvé sur Artisans de N'Djamena";
 
 const champ = document.getElementById("champ-recherche");
 const filtreMetier = document.getElementById("filtre-metier");
@@ -42,9 +43,15 @@ function creerCarte(artisan) {
   note.querySelector(".etoiles").style.setProperty("--note", artisan.note);
   note.querySelector(".note__valeur").textContent = noteTexte + " / 5";
 
-  const bouton = carte.querySelector(".bouton");
-  bouton.href = "tel:" + artisan.telephone.replace(/\s/g, "");
-  bouton.textContent = "Appeler le " + artisan.telephone;
+  const appel = carte.querySelector(".bouton--appel");
+  appel.href = "tel:" + artisan.telephone.replace(/\s/g, "");
+  appel.textContent = "Appeler le " + artisan.telephone;
+
+  // wa.me attend le numéro international en chiffres seuls : « +235 60 00 00 01 » → « 23560000001 ».
+  const whatsapp = carte.querySelector(".bouton--whatsapp");
+  whatsapp.href = "https://wa.me/" + artisan.telephone.replace(/\D/g, "") +
+    "?text=" + encodeURIComponent(MESSAGE_WHATSAPP);
+  whatsapp.setAttribute("aria-label", "Contacter sur WhatsApp : " + artisan.nom);
   return carte;
 }
 

@@ -257,12 +257,18 @@ body {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%231f5fa8'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") no-repeat 0 3px;
 }
 
+/* Les boutons restent alignés en bas des cartes, même de hauteurs différentes */
+.carte__actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
 .bouton {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  margin-top: auto;
   padding: 0 16px;
   font-weight: 600;
   color: var(--blanc);
@@ -272,7 +278,17 @@ body {
 }
 
 .bouton:hover {
-  background: var(--primaire-fonce);
+  background-color: var(--primaire-fonce);
+}
+
+/* Vert assez foncé pour que le texte blanc reste lisible (contraste ≥ 4,5:1) */
+.bouton--whatsapp {
+  padding-left: 44px;
+  background: #1a7f45 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.3z'/%3E%3C/svg%3E") no-repeat 16px center;
+}
+
+.bouton--whatsapp:hover {
+  background-color: #11602f;
 }
 
 .vide {
