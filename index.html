@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f5fa8">
+  <meta name="description" content="Annuaire des artisans de N’Djamena : couturiers, maroquiniers, forgerons, potiers et bien d’autres, quartier par quartier.">
+  <title>Artisans de N’Djamena</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <div class="entete__contenu">
+      <p class="entete__surtitre">Annuaire des savoir-faire</p>
+      <h1>Artisans de N’Djamena</h1>
+      <p class="accroche">Des mains habiles à deux pas de chez vous&nbsp;: trouvez le couturier, le forgeron ou le maroquinier qu’il vous faut.</p>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="recherche" aria-label="Rechercher un artisan">
+      <label for="champ-recherche" class="visuellement-cache">Rechercher un artisan par nom</label>
+      <input type="search" id="champ-recherche" placeholder="Rechercher par nom…" autocomplete="off">
+      <div class="filtres">
+        <label class="filtre">
+          <span class="filtre__libelle">Métier</span>
+          <select id="filtre-metier"></select>
+        </label>
+        <label class="filtre">
+          <span class="filtre__libelle">Quartier</span>
+          <select id="filtre-quartier"></select>
+        </label>
+      </div>
+    </section>
+
+    <p class="compteur" id="compteur" aria-live="polite"></p>
+    <ul class="liste" id="liste"></ul>
+    <p class="vide" id="vide" hidden>Aucun artisan trouvé</p>
+  </main>
+
+  <footer class="pied">
+    <p>Artisans de N’Djamena · L’annuaire des savoir-faire de la capitale</p>
+  </footer>
+
+  <template id="modele-carte">
+    <li class="carte">
+      <div class="carte__tete">
+        <span class="avatar" aria-hidden="true"></span>
+        <div>
+          <h2 class="carte__nom"></h2>
+          <p class="carte__metier"></p>
+        </div>
+      </div>
+      <p class="note" role="img">
+        <span class="etoiles" aria-hidden="true"></span>
+        <span class="note__valeur" aria-hidden="true"></span>
+      </p>
+      <p class="carte__lieu"></p>
+      <a class="bouton"></a>
+    </li>
+  </template>
+
+  <script src="artisans.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
